@@ -16,6 +16,31 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.urls import include, path
+from django.http import HttpResponse
+from rest_framework.routers import DefaultRouter
+
+from accounts.views import UserViewSet
+from projects.views import (
+    ProjectViewSet,
+    ProjectMembershipViewSet,
+    ProjectTimelineViewSet,
+)
+from queries.views import QueryViewSet
+from billing.views import BillViewSet, BillItemViewSet
+from documents.views import DocumentViewSet
+
+
+router = DefaultRouter()
+router.register("users", UserViewSet)
+router.register("projects", ProjectViewSet)
+router.register("memberships", ProjectMembershipViewSet)
+router.register("timelines", ProjectTimelineViewSet)
+router.register("queries", QueryViewSet)
+router.register("bills", BillViewSet)
+router.register("bill-items", BillItemViewSet)
+router.register("documents", DocumentViewSet)
+
 from django.urls import path
 from django.http import HttpResponse
 
@@ -25,5 +50,6 @@ def index(request):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),
     path("", index),
 ]
