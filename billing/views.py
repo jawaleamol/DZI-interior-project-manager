@@ -12,3 +12,6 @@ class BillViewSet(viewsets.ModelViewSet):
 class BillItemViewSet(viewsets.ModelViewSet):
     queryset = BillItem.objects.all()
     serializer_class = BillItemSerializer
+from django.shortcuts import render
+
+# Create your views here.

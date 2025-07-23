@@ -41,6 +41,9 @@ router.register("bills", BillViewSet)
 router.register("bill-items", BillItemViewSet)
 router.register("documents", DocumentViewSet)
 
+from django.urls import path
+from django.http import HttpResponse
+
 
 def index(request):
     return HttpResponse("BuildFlow API")

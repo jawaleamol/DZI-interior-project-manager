@@ -21,3 +21,7 @@ class ProjectMembershipViewSet(viewsets.ModelViewSet):
 class ProjectTimelineViewSet(viewsets.ModelViewSet):
     queryset = ProjectTimeline.objects.all()
     serializer_class = ProjectTimelineSerializer
+
+from django.shortcuts import render
+
+# Create your views here.

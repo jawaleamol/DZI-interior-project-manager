@@ -7,3 +7,7 @@ from .serializers import QuerySerializer
 class QueryViewSet(viewsets.ModelViewSet):
     queryset = Query.objects.all()
     serializer_class = QuerySerializer
+
+from django.shortcuts import render
+
+# Create your views here.
